@@ -1,5 +1,9 @@
 import { BusinessModel } from '../types';
 import { Language } from './translations';
+import mekongBowlImg from '../assets/images/mekong_bowl_concept_1791280031822.jpg';
+import wrapAndRunImg from '../assets/images/wrap_and_run_concept_1791280049644.jpg';
+import bepLanhImg from '../assets/images/bep_lanh_bento_concept_1791280064327.jpg';
+import smartPantryImg from '../assets/images/smart_pantry_fridge_1791280081042.jpg';
 
 export const BUSINESS_MODELS_VI: BusinessModel[] = [
   {
@@ -26,7 +30,7 @@ export const BUSINESS_MODELS_VI: BusinessModel[] = [
       ],
       coreValues: ['Dinh Dưỡng Khoa Học (~450 kcal)', 'Vị Miền Tây Đậm Đà', 'Tiện Lợi Tối Cực (0 Phút Chờ)']
     },
-    image: '/src/assets/images/mekong_bowl_concept_1791280031822.jpg',
+    image: mekongBowlImg,
     keyProducts: [
       {
         name: 'Cơm Gạo Lứt Gà Nướng Sốt Mắm Me Thốt Nốt',
@@ -116,7 +120,7 @@ export const BUSINESS_MODELS_VI: BusinessModel[] = [
       ],
       coreValues: ['Cầm 1 Tay Tiện Lợi (One-Handed)', 'Chỉ Số GI Thấp (Không Tích Mỡ)', 'Đánh Bại Cơn Buồn Ngủ Chiều']
     },
-    image: '/src/assets/images/wrap_and_run_concept_1791280049644.jpg',
+    image: wrapAndRunImg,
     keyProducts: [
       {
         name: 'Wrap Bánh Tráng Gạo Lứt Bò Áp Chảo Sốt Tiêu Cần Thơ',
@@ -206,7 +210,7 @@ export const BUSINESS_MODELS_VI: BusinessModel[] = [
       ],
       coreValues: ['Gắn Kết Phòng Ban', 'Chia Tiền 1 Click Không Phiền Não', 'Bền Vững Xanh (100% Bã Mía)']
     },
-    image: '/src/assets/images/bep_lanh_bento_concept_1791280064327.jpg',
+    image: bepLanhImg,
     keyProducts: [
       {
         name: 'Bento Cá Basa Nướng Tiêu Lốt & Rau Củ Kho Quẹt Lên Men',
@@ -299,7 +303,7 @@ export const BUSINESS_MODELS_EN: BusinessModel[] = [
       ],
       coreValues: ['Scientifically Calibrated (~450 kcal)', 'Bold Regional Flavor', 'Frictionless Grab (0-Min Wait)']
     },
-    image: '/src/assets/images/mekong_bowl_concept_1791280031822.jpg',
+    image: mekongBowlImg,
     keyProducts: [
       {
         name: 'Oven-Roasted Chicken Brown Rice with Tamarind Palm Glaze',
@@ -389,7 +393,7 @@ export const BUSINESS_MODELS_EN: BusinessModel[] = [
       ],
       coreValues: ['1-Handed Desk-Friendly', 'Low Glycemic Index (Zero Sugar Crash)', '14:30 Slump Breaker']
     },
-    image: '/src/assets/images/wrap_and_run_concept_1791280049644.jpg',
+    image: wrapAndRunImg,
     keyProducts: [
       {
         name: 'Brown Rice Paper Wrap with Flank Steak & Can Tho Black Pepper Sauce',
@@ -479,7 +483,7 @@ export const BUSINESS_MODELS_EN: BusinessModel[] = [
       ],
       coreValues: ['Team Camaraderie', '1-Click Effortless Bill Splitting', 'Zero-Plastic Sustainability']
     },
-    image: '/src/assets/images/bep_lanh_bento_concept_1791280064327.jpg',
+    image: bepLanhImg,
     keyProducts: [
       {
         name: 'Grilled Basa Fillet with Wild Pepper & Steamed Veggies in Fermented Umami Dip',
@@ -553,4 +557,4 @@ export const getBusinessModels = (lang: Language): BusinessModel[] => {
 
 // Default fallback export
 export const BUSINESS_MODELS = BUSINESS_MODELS_VI;
-export const SMART_PANTRY_IMAGE = '/src/assets/images/smart_pantry_fridge_1791280081042.jpg';
+export const SMART_PANTRY_IMAGE = smartPantryImg;
