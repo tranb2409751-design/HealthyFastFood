@@ -30,15 +30,19 @@ jobs:
           node-version: 20
 
       - name: Install dependencies
-        run: npm install --legacy-peer-deps
-
-      - name: Build project
         run: |
-          npm run build
-          cp ./dist/index.html ./dist/404.html
+          npm install --no-audit --legacy-peer-deps
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
+
+      - name: Build project
+        env:
+          BASE_PATH: '/${{ github.event.repository.name }}/'
+        run: |
+          npm run build
+          cp ./dist/index.html ./dist/404.html
+          touch ./dist/.nojekyll
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

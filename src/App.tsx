@@ -38,6 +38,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-stone-100/70 text-stone-900 flex flex-col font-sans">
+      <div id="app-loaded-flag" className="hidden" aria-hidden="true" />
       {/* Top Fixed Header with Language Switcher */}
       <Header
         activeTab={activeTab}
