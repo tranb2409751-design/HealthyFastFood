@@ -1,0 +1,6 @@
+{
+  "name": "Mekong Healthy F&B Can Tho - Chiến Lược & 3 Mô Hình Kinh Doanh",
+  "description": "Báo cáo nghiên cứu chuyên sâu về nghịch lý thức ăn nhanh công sở Cần Thơ, tâm lý hành vi và 3 mô hình kinh doanh thực chiến: Mekong Bowl, Wrap & Run, Bếp Lành Đô Thị.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
