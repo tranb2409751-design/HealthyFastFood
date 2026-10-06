@@ -3,19 +3,16 @@ import react from '@vitejs/plugin-react';
 import path from 'path';
 import {defineConfig} from 'vite';
 
-export default defineConfig(() => {
+export default defineConfig(({ command }) => {
   // Support GitHub Pages base path:
-  // - If BASE_PATH is provided (e.g. from GitHub Actions): use it
-  // - If running in GitHub Actions with GITHUB_REPOSITORY (e.g. "tranb2409751/HealthyFastFood"): "/HealthyFastFood/"
-  // - Otherwise default to "./" so it works locally and in AI Studio preview
-  let base = './';
+  // - In dev mode (AI Studio preview): use './'
+  // - In build mode: default to '/HealthyFastFood/' unless BASE_PATH or GITHUB_REPOSITORY is provided
+  let base = command === 'serve' ? './' : '/HealthyFastFood/';
   if (process.env.BASE_PATH) {
     base = process.env.BASE_PATH.endsWith('/') ? process.env.BASE_PATH : `${process.env.BASE_PATH}/`;
   } else if (process.env.GITHUB_REPOSITORY) {
     const repo = process.env.GITHUB_REPOSITORY.split('/')[1];
     base = repo ? `/${repo}/` : '/HealthyFastFood/';
-  } else if (process.env.GITHUB_ACTIONS === 'true') {
-    base = '/HealthyFastFood/';
   }
 
   return {

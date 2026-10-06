@@ -42,12 +42,41 @@
       </div>
       <style>@keyframes spin{to{transform:rotate(360deg)}}</style>
       <script>
-        setTimeout(function() {
-          var fallback = document.getElementById('loading-fallback');
-          if (fallback && !document.getElementById('app-loaded-flag')) {
-            fallback.style.display = 'block';
-          }
-        }, 4000);
+        // Automatic fallback loader: if React hasn't mounted after 2.5s, dynamically attempt alternate bundle paths
+        (function() {
+          setTimeout(function() {
+            if (!document.getElementById('app-loaded-flag')) {
+              var isGH = window.location.hostname.endsWith('github.io');
+              if (isGH) {
+                var p = window.location.pathname;
+                var segments = p.split('/').filter(Boolean);
+                var repo = segments.length > 0 ? segments[0] : 'HealthyFastFood';
+                var tryPaths = [
+                  '/' + repo + '/assets/index.js',
+                  './assets/index.js',
+                  './dist/assets/index.js',
+                  './docs/assets/index.js'
+                ];
+                var idx = 0;
+                function loadNext() {
+                  if (idx >= tryPaths.length || document.getElementById('app-loaded-flag')) return;
+                  var targetUrl = tryPaths[idx++];
+                  import(targetUrl).catch(function() {
+                    loadNext();
+                  });
+                }
+                loadNext();
+              }
+            }
+          }, 2500);
+
+          setTimeout(function() {
+            var fallback = document.getElementById('loading-fallback');
+            if (fallback && !document.getElementById('app-loaded-flag')) {
+              fallback.style.display = 'block';
+            }
+          }, 5000);
+        })();
       </script>
     </div>
     <script type="module" src="/src/main.tsx"></script>
